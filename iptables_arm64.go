@@ -8,6 +8,9 @@ import (
 )
 
 func main() {
+	if os.Getenv("GOKRAZY_FIRST_START") == "1" {
+		os.Exit(0)
+	}
 	const frozenDir = "/usr/lib/aarch64-linux-gnu/iptables.frozen"
 	iptables := exec.Command(
 		frozenDir+"/ld-linux-aarch64.so.1",
